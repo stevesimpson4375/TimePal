@@ -15,3 +15,5 @@ artifacts
 .idea
 .vscode
 .node_modules.lock
+AGENTS.md
+AGENTS.project.md

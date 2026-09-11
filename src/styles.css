@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-background: #0e0e0c;
+  --color-foreground: #ece8df;
+  --color-card: #171713;
+  --color-card-foreground: #ece8df;
+  --color-popover: #1c1b16;
+  --color-popover-foreground: #ece8df;
+  --color-muted: #1f1e19;
+  --color-muted-foreground: #a39e94;
+  --color-accent: #c5d1c4;
+  --color-accent-foreground: #0e0e0c;
+  --color-primary: #c5d1c4;
+  --color-primary-foreground: #0e0e0c;
+  --color-secondary: #1f1e19;
+  --color-secondary-foreground: #ece8df;
+  --color-destructive: #c47a6a;
+  --color-border: #2a2924;
+  --color-input: #2a2924;
+  --color-ring: #c5d1c4;
+  --color-work: #8aa0ad;
+  --color-life: #c4a88a;
+  --color-warn: #c4a574;
+  --color-ok: #8fad8a;
+  --color-subtle: #6f6b63;
+  --color-paper: #ece8df;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-border: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-border-hover: 0 0 0 1px rgb(255 255 255 / 0.13);
+}
+
+@layer base {
+  html {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+    color: var(--color-foreground);
+  }
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal-in {
+  animation: reveal-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
